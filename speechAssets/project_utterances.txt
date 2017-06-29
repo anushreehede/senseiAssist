@@ -1,0 +1,25 @@
+StartProject I want to add a new project
+StartProject I want to start a new project
+StartProject I want to create a new project
+StartProject I want to start a project
+
+FetchProject I want to fetch details of a project
+FetchProject I want to retrieve details of a project
+
+UpdateProject I want to update details of a project
+UpdateProject I want to modify details of a project
+
+AddSubtaskIntent the project name is {ProjectName}
+AddInchargeIntent the sub task of this project is {SubTask}
+AddDeadlineIntent the project incharge is {ProjectIncharge}
+AddStatusIntent the deadline is {Deadline}
+AddFinalIntent the status is {Status}
+
+FetchSubTask the project I want is {ProjectName}
+FetchFinalIntent the sub task I want is {SubTask}
+
+UpdateStatus I want to update the status
+UpdateStatus I want to modify the status
+UpdateDeadline I want to update the deadline
+UpdateDeadline I want to modify the deadline
+

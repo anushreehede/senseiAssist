@@ -1,0 +1,77 @@
+{
+    "intents": [
+        {"intent": "StartProject"  },
+        {"intent": "FetchProject"  },
+        {"intent": "UpdateProject" },
+        {
+            "intent": "AddSubtaskIntent",
+            "slots": [
+                {
+                    "name": "ProjectName",
+                    "type": "PROJECTS"
+                }
+            ]
+        },
+        {
+            "intent": "AddInchargeIntent",
+            "slots": [
+                {
+                    "name": "SubTask",
+                    "type": "SUBTASKS"
+                }
+            ]
+        },
+        {
+            "intent": "AddDeadlineIntent",
+            "slots": [
+                {
+                    "name": "ProjectIncharge",
+                    "type": "MANAGERS"
+                }
+            ]
+        },
+        {
+            "intent": "AddStatusIntent",
+            "slots": [
+                {
+                    "name": "Deadline",
+                    "type": "AMAZON.DATE"
+                }
+            ]
+        },
+        {
+            "intent": "AddFinalIntent",
+            "slots": [
+                {
+                    "name": "Status",
+                    "type": "STATUS"
+                }
+            ]
+        },
+        {
+            "intent": "FetchSubTask",
+            "slots": [
+                {
+                    "name": "ProjectName",
+                    "type": "PROJECTS"
+                }
+            ]
+        },
+        {
+            "intent": "FetchFinalIntent",
+            "slots": [
+                {
+                    "name": "SubTask",
+                    "type": "SUBTASKS"
+                }
+            ]
+        },
+        {"intent": "UpdateStatus"  },
+        {"intent": "UpdateDeadline"  },
+        {"intent": "AMAZON.YesIntent"},
+        {"intent": "AMAZON.NoIntent"},
+        {"intent": "AMAZON.HelpIntent"},
+        {"intent": "AMAZON.StopIntent"},
+        {"intent": "AMAZON.CancelIntent"}
+    ]
+}

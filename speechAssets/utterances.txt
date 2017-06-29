@@ -1,0 +1,36 @@
+OrderIntent {Item}
+OrderIntent {Item} please
+OrderIntent {Item} and {Item}
+OrderIntent {Item} and {Item} please
+OrderIntent a {Item} and a {Item}
+OrderIntent a {Item} and a {Item} please
+OrderIntent a {Item} and some {Item}
+OrderIntent a {Item} and some {Item} please
+OrderIntent some {Item} and a {Item}
+OrderIntent some {Item} and a {Item} please
+OrderIntent I would like a {Item}
+OrderIntent I would like some {Item}
+OrderIntent I would like a {Item} please
+OrderIntent I would like some {Item} please
+OrderIntent I want a {Item}
+OrderIntent I want some {Item}
+OrderIntent Please get me a {Item}
+OrderIntent Please get me some {Item}
+OrderIntent I would like a {Item} and a {Item}
+OrderIntent I would like a {Item} and a {Item} please
+OrderIntent I would like a {Item} and some {Item}
+OrderIntent I would like a {Item} and some {Item} please
+OrderIntent I would like some {Item} and a {Item}
+OrderIntent I would like some {Item} and a {Item} please
+OrderIntent Please get me a {Item} and a {Item}
+OrderIntent Please get me some {Item} and a {Item}
+OrderIntent Please get me a {Item} and some {Item}
+OrderIntent I want a {Item} and a {Item}
+OrderIntent I want a {Item} and a {Item} please
+OrderIntent I want a {Item} and some {Item}
+OrderIntent I want a {Item} and some {Item} please
+OrderIntent I want some {Item} and a {Item}
+OrderIntent I want some {Item} and a {Item} please
+ContactIntent {Email}
+ContactIntent The new email is {Email}
+ContactIntent The email is {Email}
