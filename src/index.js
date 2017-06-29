@@ -134,8 +134,6 @@ var startProjectHandler = Alexa.CreateStateHandler(states.PROJECTMODE, {
     }
 });
 
-/****************** Working on it ********************/ 
-
 // The handler to fetch/retrieve Deadline, Project Incharge and Status values
 var retrieveProjectHandler = Alexa.CreateStateHandler(states.FETCHMODE, {
     'NewSession': function () {
