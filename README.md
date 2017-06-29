@@ -4,10 +4,11 @@ It can add projects and fetch project details.
 
 ### Clone this repository. Navigate to the directory of this repo. 
 
-`cd alexaTest`
+`cd senseiAssist`
 
 ### Install nodejs dependencies
 
+`cd src`
 `npm install`
 
 ### Uploading to Amazon AWS
