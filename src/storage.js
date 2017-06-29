@@ -1,4 +1,5 @@
 'use strict'
+// importing and configuring aws sdk for accessing dynamodb
 var AWS = require("aws-sdk");
 
 AWS.config.update({
@@ -6,29 +7,27 @@ AWS.config.update({
 	endpoint: "https://dynamodb.us-east-1.amazonaws.com"
 });
 
+// main storage variable which has functions of saving, fetching and updating data
 var storage = (function() {
 	var dynamodb = new AWS.DynamoDB.DocumentClient();
 	return {
+        // saving a project 
 		save: function(project, callback) {
 			var params = {
-               //Items: {
                   TableName: "SenseiProjects",
                   Item:{
                      ProjectName: project['ProjectName'] ,
                      SubTask: project['SubTask'],
-                     //the other non-key colums are stored as "info"
-
-                     //"info": {
                      ProjectIncharge: project['ProjectIncharge'],
                      Deadline: project['Deadline'],
                      Status: project['Status']
-                     //}
                   }
               };
 			dynamodb.put(params, function(err, data) {
 				callback();
 			});
 		},
+        // fetching a project with project name and sub task as key
 		getProject: function(project, callback) {
 			var params = {
 				TableName: 'SenseiProjects',
@@ -46,4 +45,5 @@ var storage = (function() {
     }
 })();
 
+// exporting the storage variable
 module.exports = storage;

@@ -1,8 +1,7 @@
-//using alexa sdk
+// using alexa sdk
 var Alexa = require('alexa-sdk');
-//using aws sdk and connecting to dynamoDB
-var AWS = require('aws-sdk')
-var docClient = new AWS.DynamoDB.DocumentClient({region: "eu-east-1"});
+
+// importing storage.js
 var storage = require('./storage');
 
 // Exporting the handler to the lambda function
@@ -25,6 +24,7 @@ var states = {
 
 // This will short-cut any incoming intent or launch requests and route them to this handler.
 var newSessionHandlers = {
+    // The main intent of this handler
     'NewSession': function() {
         this.handler.state = states.STARTMODE;
         this.emit(':ask', "Welcome to Sensei office assistant, what can i do for you?");
@@ -50,14 +50,17 @@ var ProjectHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
         this.emit('NewSession'); // Uses the handler in newSessionHandlers
     },
 
+    // Intent to start/create a new project, asks for the project name
     "StartProject": function(){
         this.handler.state = states.PROJECTMODE;
         this.emit(':ask', 'Alright, tell me all the project details one by one. Start with the project name. ');
     },
+    // Intent to fetch the details of a project, asks for the project name
     "FetchProject": function(){
         this.handler.state = states.FETCHMODE;
         this.emit(':ask', 'Tell me the project name which you would like to retrieve?');
     },
+    // Intent to update the details of a particular project
     "UpdateProject": function(){
         this.handler.state = states.UPDATEMODE;
         this.emit(':ask', 'What would you like to update?');
@@ -91,27 +94,32 @@ var startProjectHandler = Alexa.CreateStateHandler(states.PROJECTMODE, {
     'NewSession': function () {
         this.emit('NewSession'); // Uses the handler in newSessionHandlers
     },
-
+    
+    // asks for the sub task
     'AddSubtaskIntent': function() {
         project['ProjectName'] = this.event.request.intent.slots.ProjectName.value;
 
         this.emit(':ask', "What is the sub task");
     },
+    // asks for the project incharge
     'AddInchargeIntent': function() {
         project['SubTask'] = this.event.request.intent.slots.SubTask.value;
 
         this.emit(':ask', "Who is incharge?");
     },
+    // asks for the deadline
     'AddDeadlineIntent': function() {
         project['ProjectIncharge'] = this.event.request.intent.slots.ProjectIncharge.value;
 
         this.emit(':ask', "When is the deadline");
     },
+    // asks for the status
     'AddStatusIntent': function(){
         project['Deadline'] = this.event.request.intent.slots.Deadline.value ;
 
         this.emit(':ask',"What is the status");
     },
+    // saves project details in dynamodb database
     'AddFinalIntent': function(){
         project['Status'] = this.event.request.intent.slots.Status.value ;
         storage.save(project, () => {
@@ -152,11 +160,13 @@ var retrieveProjectHandler = Alexa.CreateStateHandler(states.FETCHMODE, {
     'Unhandled': function() {
         this.emit(':tell', "This intent is unhandled");
     },
+    // asks for sub task of project
     "FetchSubTask":function() {
         project['ProjectName'] = this.event.request.intent.slots.ProjectName.value;
 
         this.emit(':ask', "What is the sub task");
     },
+    // fetches the project details from dynamodb database 
     "FetchFinalIntent": function(){
         project['SubTask'] = this.event.request.intent.slots.SubTask.value;
         storage.getProject(project, (fetch_project) => {
