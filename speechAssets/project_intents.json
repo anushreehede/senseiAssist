@@ -66,8 +66,42 @@
                 }
             ]
         },
-        {"intent": "UpdateStatus"  },
-        {"intent": "UpdateDeadline"  },
+        {
+            "intent": "UpdateProjectName",
+            "slots": [
+                {
+                    "name": "ProjectName",
+                    "type": "PROJECTS"
+                }
+            ]
+        },
+        {
+            "intent": "UpdateSubtask",
+            "slots": [
+                {
+                    "name": "SubTask",
+                    "type": "SUBTASKS"
+                }
+            ]
+        },
+        {
+            "intent": "UpdateStatus",
+            "slots": [
+                {
+                    "name": "Status",
+                    "type": "STATUS"
+                }
+            ]
+        },
+        {
+            "intent": "UpdateDeadline",
+            "slots": [
+                {
+                    "name": "Deadline",
+                    "type": "AMAZON.DATE"
+                }
+            ]
+        },
         {"intent": "AMAZON.YesIntent"},
         {"intent": "AMAZON.NoIntent"},
         {"intent": "AMAZON.HelpIntent"},

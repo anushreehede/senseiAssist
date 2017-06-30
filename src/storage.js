@@ -40,10 +40,44 @@ var storage = (function() {
 				callback(data.Item);
 			});
 		},
-        //updateDeadline: ,
-        //updateStatus:
+        // updates the deadline with given value
+        updateDeadline: function(project, callback){
+            var params = {
+
+            TableName: "SenseiProjects",
+            Key: {
+                ProjectName:project['Project Name'] ,
+                SubTask : project['SubTask']
+              },
+            UpdateExpression: "Deadline=:d",
+            ExpressionAttributeValues: {
+                ":d": project['Deadline']
+              }
+
+            };
+            dynamodb.update(params, function(err, data){
+                callback();
+            });
+        },
+        // updates the status with given value
+        updateStatus: function(project, callback) {
+            var params = {
+
+            TableName: "SenseiProjects",
+            Key: {
+                ProjectName: project['ProjectName'] ,
+                SubTask: project['SubTask']
+               },
+            UpdateExpression: "Status=:s",
+            ExpressionAttributeValues: {
+                ":s": project['Status']
+               }
+            };
+            dynamodb.update(params, function(err, data){
+                callback();
+            });
+        }
     }
 })();
-
 // exporting the storage variable
 module.exports = storage;

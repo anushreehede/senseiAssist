@@ -23,6 +23,6 @@ The intents and utterances have been included in `/speechAssets`.
 3. Update project details, delete project - important for `storage.js`
 4. Any other functionality
 5. Improve the sample utterances 
-6. Change the code in `/speechAssets` whenever new intent is added
+6. Change the code in `/speechAssets` whenever new intent is ad
 
 

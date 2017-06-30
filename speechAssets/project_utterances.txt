@@ -6,7 +6,7 @@ StartProject I want to start a project
 FetchProject I want to fetch details of a project
 FetchProject I want to retrieve details of a project
 
-UpdateProject I want to update details of a project
+UpdateProject I want to update details of a project 
 UpdateProject I want to modify details of a project
 
 AddSubtaskIntent the project name is {ProjectName}
@@ -18,8 +18,9 @@ AddFinalIntent the status is {Status}
 FetchSubTask the project I want is {ProjectName}
 FetchFinalIntent the sub task I want is {SubTask}
 
-UpdateStatus I want to update the status
-UpdateStatus I want to modify the status
-UpdateDeadline I want to update the deadline
-UpdateDeadline I want to modify the deadline
-
+UpdateProjectName I want to update the project {ProjectName}
+UpdateSubtask The sub task is {SubTask}
+UpdateStatus I want to update the status to be {Status}
+UpdateStatus I want to modify the status to be {Status}
+UpdateDeadline I want to update the deadline to be {Deadline}
+UpdateDeadline I want to modify the deadline to be {Deadline}

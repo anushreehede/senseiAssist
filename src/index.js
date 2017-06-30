@@ -63,7 +63,7 @@ var ProjectHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
     // Intent to update the details of a particular project
     "UpdateProject": function(){
         this.handler.state = states.UPDATEMODE;
-        this.emit(':ask', 'What would you like to update?');
+        this.emit(':ask', 'Which project would you like to update?');
     },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
@@ -177,8 +177,6 @@ var retrieveProjectHandler = Alexa.CreateStateHandler(states.FETCHMODE, {
     }
 });
 
-/******* Not yet debugged ********/
-
 // The handler to modify/update the status or deadline of the project
 var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
     'NewSession': function () {
@@ -197,62 +195,31 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
     'Unhandled': function() {
         this.emit(':tell', "This intent is unhandled");
     },
-    "UpdateDeadline": function(){
-
-        this.emit(':ask', "what is the project name");
-        var ProjectName = this.event.request.intent.slots.ProjectName.value;
-
-        this.emit(':ask', "what is the sub task");
-        var SubTask = this.event.request.intent.slots.SubTask.value;
-
-        this.emit(':ask', "what is the deadline");
-        var Deadline = this.event.request.intent.slots.SubTask.value ;
-
-        var table = "SenseiProjects";
-
-        var params = {
-
-            TableName: table,
-            Key: {
-                "ProjectName":ProjectName ,
-                "SubTask" : SubTask
-            },
-            UpdateExpression: "info.Deadline=:d",
-            ExpressionAttributeValues: {
-                ":d": Deadline
-            }
-
-        };
-
-
-
+    // asks for subtask to update
+    'UpdateProjectName': function(){
+        project['ProjectName'] = this.event.request.intent.slots.ProjectName.value;
+        this.emit(':ask', "What is the sub task?");
     },
+    // asks whether we want to update status or deadline
+    'UpdateSubtask': function(){
+        project['SubTask'] = this.event.request.intent.slots.SubTask.value;
+        this.emit(':ask', "What would you like to update in this project?");
+    },
+    // updates the deadline in dynamodb
+    "UpdateDeadline": function(){
+        project['Deadline'] = this.event.request.intent.slots.Deadline.value ;
+        storage.updateDeadline(project, ()=> {
+                this.handler.state = states.STARTMODE;
+                this.emit(":ask", "Your project deadline has been updated . What would you like to do now?");
+        });
+    },
+    // updates the status in dynamodb
     "UpdateStatus": function(){
-
-        this.emit(':ask', "what is the project name");
-        var ProjectName = this.event.request.intent.slots.ProjectName.value;
-
-        this.emit(':ask', "what is the sub task");
-        var SubTask = this.event.request.intent.slots.SubTask.value;
-
-        this.emit(':ask', "what is the new status update");
-        var Status = this.event.request.intent.slots.Status.value ;
-
-        var table = "SenseiProjects";
-
-        var params = {
-
-            TableName: table,
-            Key: {
-                "ProjectName":ProjectName ,
-                "SubTask" : SubTask
-            },
-            UpdateExpression: "info.Status=:s",
-            ExpressionAttributeValues: {
-                ":s": Status
-            }
-
-        };
+        project['Status'] = this.event.request.intent.slots.Status.value ;
+        storage.updateStatus(project, () => {
+                this.handler.state = states.STARTMODE;
+                this.emit(":ask", "Your project status has been updated. What would you like to do now?");
+        });
 
     }
 });
