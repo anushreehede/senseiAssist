@@ -20,7 +20,7 @@ FetchFinalIntent the sub task I want is {SubTask}
 
 UpdateProjectName I want to update the project {ProjectName}
 UpdateSubtask The sub task is {SubTask}
-UpdateStatus I want to update the status to be {Status}
-UpdateStatus I want to modify the status to be {Status}
 UpdateDeadline I want to update the deadline to be {Deadline}
 UpdateDeadline I want to modify the deadline to be {Deadline}
+UpdateStatus I want to update the status to be {Status}
+UpdateStatus I want to modify the status to be {Status}

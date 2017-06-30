@@ -85,20 +85,20 @@
             ]
         },
         {
-            "intent": "UpdateStatus",
-            "slots": [
-                {
-                    "name": "Status",
-                    "type": "STATUS"
-                }
-            ]
-        },
-        {
             "intent": "UpdateDeadline",
             "slots": [
                 {
                     "name": "Deadline",
                     "type": "AMAZON.DATE"
+                }
+            ]
+        },
+        {
+            "intent": "UpdateStatus",
+            "slots": [
+                {
+                    "name": "Status",
+                    "type": "STATUS"
                 }
             ]
         },

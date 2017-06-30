@@ -207,7 +207,7 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
     },
     // updates the deadline in dynamodb
     "UpdateDeadline": function(){
-        project['Deadline'] = this.event.request.intent.slots.Deadline.value ;
+        project['Deadline'] = this.event.request.intent.slots.Deadline.value;
         storage.updateDeadline(project, ()=> {
                 this.handler.state = states.STARTMODE;
                 this.emit(":ask", "Your project deadline has been updated . What would you like to do now?");
@@ -215,7 +215,7 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
     },
     // updates the status in dynamodb
     "UpdateStatus": function(){
-        project['Status'] = this.event.request.intent.slots.Status.value ;
+        project['Status'] = this.event.request.intent.slots.Status.value;
         storage.updateStatus(project, () => {
                 this.handler.state = states.STARTMODE;
                 this.emit(":ask", "Your project status has been updated. What would you like to do now?");
