@@ -8,7 +8,7 @@ It can add projects and fetch project details.
 
 ### Install nodejs dependencies
 
-`cd src` 
+`cd src`    
 `npm install`
 
 ### Uploading to Amazon AWS

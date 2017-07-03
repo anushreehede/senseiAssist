@@ -8,7 +8,7 @@
             "slots": [
                 {
                     "name": "ProjectName",
-                    "type": "PROJECTS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },
@@ -17,7 +17,7 @@
             "slots": [
                 {
                     "name": "SubTask",
-                    "type": "SUBTASKS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },
@@ -26,7 +26,7 @@
             "slots": [
                 {
                     "name": "ProjectIncharge",
-                    "type": "MANAGERS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },
@@ -53,7 +53,7 @@
             "slots": [
                 {
                     "name": "ProjectName",
-                    "type": "PROJECTS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },
@@ -62,7 +62,7 @@
             "slots": [
                 {
                     "name": "SubTask",
-                    "type": "SUBTASKS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },
@@ -71,7 +71,7 @@
             "slots": [
                 {
                     "name": "ProjectName",
-                    "type": "PROJECTS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },
@@ -80,7 +80,7 @@
             "slots": [
                 {
                     "name": "SubTask",
-                    "type": "SUBTASKS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },

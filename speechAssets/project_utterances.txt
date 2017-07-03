@@ -9,18 +9,41 @@ FetchProject I want to retrieve details of a project
 UpdateProject I want to update details of a project 
 UpdateProject I want to modify details of a project
 
-AddSubtaskIntent the project name is {ProjectName}
-AddInchargeIntent the sub task of this project is {SubTask}
-AddDeadlineIntent the project incharge is {ProjectIncharge}
+AddSubtaskIntent the project name is {project|ProjectName}
+AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName}
+AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName} {for|ProjectName}
+AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+
+AddInchargeIntent the sub task of this project is {this|SubTask}
+AddInchargeIntent the sub task of this project is {this|SubTask} {is|SubTask}
+AddInchargeIntent the sub task of this project is {this|SubTask} {is|SubTask} {task|SubTask} 
+
+AddDeadlineIntent the project incharge is {first|ProjectIncharge}
+AddDeadlineIntent the project incharge is {first|ProjectIncharge} {last|ProjectIncharge}
+
 AddStatusIntent the deadline is {Deadline}
 AddFinalIntent the status is {Status}
 
-FetchSubTask the project I want is {ProjectName}
-FetchFinalIntent the sub task I want is {SubTask}
+FetchSubTask the project I want is {project|ProjectName}
+FetchSubTask the project I want is {project|ProjectName} {one|ProjectName}
+FetchSubTask the project I want is {project|ProjectName} {one|ProjectName} {for|ProjectName}
+FetchSubTask the project I want is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
 
-UpdateProjectName I want to update the project {ProjectName}
-UpdateSubtask The sub task is {SubTask}
+FetchFinalIntent the sub task I want is {this|SubTask}
+FetchFinalIntent the sub task I want is {this|SubTask} {is|SubTask}
+FetchFinalIntent the sub task I want is {this|SubTask} {is|SubTask} {task|SubTask}
+
+UpdateProjectName I want to update the project {project|ProjectName}
+UpdateProjectName I want to update the project {project|ProjectName} {one|ProjectName}
+UpdateProjectName I want to update the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+UpdateProjectName I want to update the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+
+UpdateSubtask The sub task is {this|SubTask}
+UpdateSubtask The sub task is {this|SubTask} {is|SubTask}
+UpdateSubtask The sub task is {this|SubTask} {is|SubTask} {task|SubTask}
+
 UpdateDeadline I want to update the deadline to be {Deadline}
 UpdateDeadline I want to modify the deadline to be {Deadline}
+
 UpdateStatus I want to update the status to be {Status}
 UpdateStatus I want to modify the status to be {Status}
