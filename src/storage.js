@@ -43,17 +43,16 @@ var storage = (function() {
         // updates the deadline with given value
         updateDeadline: function(project, callback){
             var params = {
-
-            TableName: 'SenseiProjects',
-            Key: {
-                ProjectName:project['Project Name'] ,
-                SubTask : project['SubTask']
-              },
-            UpdateExpression: "set Deadline=:d",
-            ExpressionAttributeValues: {
+                TableName: 'SenseiProjects',
+                Key: {
+                   ProjectName:project['ProjectName'] ,
+                   SubTask : project['SubTask']
+                  },
+                UpdateExpression: "set Deadline = :d",
+                ExpressionAttributeValues: {
                 ":d": project['Deadline']
-              },
-            ReturnValues:"UPDATED_NEW"
+                }
+            //ReturnValues:"UPDATED_NEW"
 
             };
             dynamodb.update(params, function(err, data){
@@ -74,11 +73,13 @@ var storage = (function() {
                 ProjectName: project['ProjectName'] ,
                 SubTask: project['SubTask']
                },
-            UpdateExpression: "set Status=:s",
+            UpdateExpression: "set #status = :status",
+            ExpressionAttributeNames: {
+                "#status" : 'Status'},
             ExpressionAttributeValues: {
-                ":s": project['Status']
-               },
-            ReturnValues:"UPDATED_NEW"
+                ":status": project['Status']
+               }
+            //ReturnValues:"UPDATED_NEW"
             };
             dynamodb.update(params, function(err, data){
                 if(err){
