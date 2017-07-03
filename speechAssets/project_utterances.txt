@@ -9,6 +9,8 @@ FetchProject I want to retrieve details of a project
 UpdateProject I want to update details of a project 
 UpdateProject I want to modify details of a project
 
+DeleteProject I want to delete a project
+
 AddSubtaskIntent the project name is {project|ProjectName}
 AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName}
 AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName} {for|ProjectName}
@@ -47,3 +49,12 @@ UpdateDeadline I want to modify the deadline to be {Deadline}
 
 UpdateStatus I want to update the status to be {Status}
 UpdateStatus I want to modify the status to be {Status}
+
+DeleteSubTask the project I want to delete is {project|ProjectName}
+DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName}
+DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+
+DeleteFinalIntent the sub task I want to delete is {this|SubTask}
+DeleteFinalIntent the sub task I want to delete is {this|SubTask} {is|SubTask}
+DeleteFinalIntent the sub task I want to delete is {this|SubTask} {is|SubTask} {task|SubTask}

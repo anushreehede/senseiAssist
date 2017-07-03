@@ -3,6 +3,7 @@
         {"intent": "StartProject"  },
         {"intent": "FetchProject"  },
         {"intent": "UpdateProject" },
+        {"intent": "DeleteProject" },
         {
             "intent": "AddSubtaskIntent",
             "slots": [
@@ -99,6 +100,24 @@
                 {
                     "name": "Status",
                     "type": "STATUS"
+                }
+            ]
+        },
+        {
+            "intent": "DeleteSubTask",
+            "slots": [
+                {
+                    "name": "ProjectName",
+                    "type": "AMAZON.LITERAL"
+                }
+            ]
+        },
+        {
+            "intent": "DeleteFinalIntent",
+            "slots": [
+                {
+                    "name": "SubTask",
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },

@@ -89,7 +89,20 @@ var storage = (function() {
                     callback();
                 }
             });
-        }
+        },
+        // deletes the project details
+        deleteProject: function(project, callback) {
+			var params = {
+				TableName: 'SenseiProjects',
+				Key: {
+					ProjectName: project['ProjectName'],
+                    SubTask: project['SubTask']
+				}
+			};
+			dynamodb.delete(params, function(err, data) {
+				callback();
+			});
+		}
     }
 })();
 // exporting the storage variable

@@ -10,7 +10,7 @@ exports.handler = function(event,context,callback) {
     var alexa = Alexa.handler(event, context);
     alexa.appId = 'amzn1.ask.skill.39abddd6-719b-4358-b2fb-cf47d5a281e2'; // App ID given on Amazon Developers console
 
-    alexa.registerHandlers(newSessionHandlers, ProjectHandlers, startProjectHandler, retrieveProjectHandler, updateProjectHandler);
+    alexa.registerHandlers(newSessionHandlers, ProjectHandlers, startProjectHandler, retrieveProjectHandler, updateProjectHandler, deleteProjectHandler);
     alexa.execute();
 
 };
@@ -20,7 +20,8 @@ var states = {
     STARTMODE: "_STARTMODE", // to start a session to give Alexa an order
     PROJECTMODE: "_PROJECTMODE",  // to add a project
     FETCHMODE: "_FETCHMODE", // to fetch project details
-    UPDATEMODE: "_UPDATEMODE" // to update project details 
+    UPDATEMODE: "_UPDATEMODE", // to update project details 
+    DELETEMODE: "_DELETEMODE" // to delete a project
 };
 
 // This will short-cut any incoming intent or launch requests and route them to this handler.
@@ -65,6 +66,10 @@ var ProjectHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
     "UpdateProject": function(){
         this.handler.state = states.UPDATEMODE;
         this.emit(':ask', 'Which project would you like to update?');
+    },
+    "DeleteProject": function(){
+        this.handler.state = states.DELETEMODE;
+        this.emit(':ask', 'Tell me the project name which you would like to delete?');
     },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
@@ -222,5 +227,40 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
                 this.emit(":ask", "Your project status has been updated. What would you like to do now?");
         });
 
+    }
+});
+
+// The handler to delete all project details
+var deleteProjectHandler = Alexa.CreateStateHandler(states.DELETEMODE, {
+    'NewSession': function () {
+        this.emit('NewSession'); // Uses the handler in newSessionHandlers
+    },
+    "AMAZON.StopIntent": function() {
+      this.emit(':tell', "Goodbye!");  
+    },
+    "AMAZON.CancelIntent": function() {
+      this.emit(':tell', "Goodbye!");  
+    },
+    'SessionEndedRequest': function () {
+        console.log('session ended!');
+        this.emit(":tell", "Goodbye!");
+    },
+    'Unhandled': function() {
+        this.emit(':tell', "This intent is unhandled");
+    },
+    // asks for sub task of project
+    "DeleteSubTask":function() {
+        project['ProjectName'] = this.event.request.intent.slots.ProjectName.value;
+
+        this.emit(':ask', "What is the sub task");
+    },
+    // fetches the project details from dynamodb database 
+    "DeleteFinalIntent": function(){
+        project['SubTask'] = this.event.request.intent.slots.SubTask.value;
+        storage.deleteProject(project, () => {
+            this.handler.state = states.STARTMODE;
+            response = 'The project you requested has been deleted. What would you like to do now?';
+            this.emit(':ask', response);
+        });
     }
 });
