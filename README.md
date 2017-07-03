@@ -9,7 +9,7 @@ It can add and delete projects, and fetch project details. It can update some de
 ### Install nodejs dependencies
 
 `cd src`    
-`npm install alexa-sdk`
+`npm install alexa-sdk`   
 `npm install aws-sdk`
 
 ### Uploading to Amazon AWS
@@ -19,8 +19,8 @@ The intents and utterances have been included in `/speechAssets`.
 
 ### TODO
 
-1. Add send-email script and relevant intent in `index.js`
-~~2. Multi-word slot values~~
+1. Add send-email script and relevant intent in `index.js`  
+~~2. Multi-word slot values~~   
 ~~3. Update project details, delete project - important for `storage.js`~~
 4. Create email field in SenseiProjects table, change utterances, intents files
 5. Update email intent 
