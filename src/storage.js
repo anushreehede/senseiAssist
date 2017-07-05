@@ -7,6 +7,9 @@ AWS.config.update({
 	endpoint: "https://dynamodb.us-east-1.amazonaws.com"
 });
 
+// Requiring email information
+var email = require('./email');
+
 // main storage variable which has functions of saving, fetching and updating data
 var storage = (function() {
 	var dynamodb = new AWS.DynamoDB.DocumentClient();
@@ -19,6 +22,7 @@ var storage = (function() {
                      ProjectName: project['ProjectName'] ,
                      SubTask: project['SubTask'],
                      ProjectIncharge: project['ProjectIncharge'],
+                     Email: project['Email'],
                      Deadline: project['Deadline'],
                      Status: project['Status']
                   }
@@ -52,8 +56,6 @@ var storage = (function() {
                 ExpressionAttributeValues: {
                 ":d": project['Deadline']
                 }
-            //ReturnValues:"UPDATED_NEW"
-
             };
             dynamodb.update(params, function(err, data){
                 if(err){
@@ -64,7 +66,7 @@ var storage = (function() {
                 }
             });
         },
-        // updates the status with given value
+        // updates the status with given value, sending email to project incharge
         updateStatus: function(project, callback) {
             var params = {
 
@@ -79,7 +81,31 @@ var storage = (function() {
             ExpressionAttributeValues: {
                 ":status": project['Status']
                }
-            //ReturnValues:"UPDATED_NEW"
+            };
+            email.send(project, () => {
+            });
+            dynamodb.update(params, function(err, data){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    callback();
+                }
+            });
+        },
+        // updates the email with given value
+        updateEmail: function(project, callback){
+            var params = {
+                TableName: 'SenseiProjects',
+                Key: {
+                   ProjectName:project['ProjectName'] ,
+                   SubTask : project['SubTask']
+                  },
+                UpdateExpression: "set Email = :e, ProjectIncharge = :p",
+                ExpressionAttributeValues: {
+                ":e": project['Email'],
+                ":p": project['ProjectIncharge']
+                }
             };
             dynamodb.update(params, function(err, data){
                 if(err){

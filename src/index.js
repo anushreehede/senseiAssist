@@ -21,7 +21,8 @@ var states = {
     PROJECTMODE: "_PROJECTMODE",  // to add a project
     FETCHMODE: "_FETCHMODE", // to fetch project details
     UPDATEMODE: "_UPDATEMODE", // to update project details 
-    DELETEMODE: "_DELETEMODE" // to delete a project
+    DELETEMODE: "_DELETEMODE", // to delete a project
+    EMAILMODE: "_EMAILMODE" // to send an email to project incharge
 };
 
 // This will short-cut any incoming intent or launch requests and route them to this handler.
@@ -91,6 +92,7 @@ var project = {
     'ProjectName': '',
     'SubTask': '',
     'ProjectIncharge': '',
+    'Email': '',
     'Deadline': '',
     'Status': ''
 };
@@ -111,12 +113,15 @@ var startProjectHandler = Alexa.CreateStateHandler(states.PROJECTMODE, {
     'AddInchargeIntent': function() {
         project['SubTask'] = this.event.request.intent.slots.SubTask.value;
 
-        this.emit(':ask', "Who is incharge?");
+        this.emit(':ask', "Who is incharge what is their email id?");
     },
+    
     // asks for the deadline
     'AddDeadlineIntent': function() {
         project['ProjectIncharge'] = this.event.request.intent.slots.ProjectIncharge.value;
-
+        
+        project['Email'] = this.event.request.intent.slots.Email.value;
+        
         this.emit(':ask', "When is the deadline");
     },
     // asks for the status
@@ -227,7 +232,16 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
                 this.emit(":ask", "Your project status has been updated. What would you like to do now?");
         });
 
-    }
+    },
+    // updates the email in dynamodb
+    "UpdateEmail": function(){
+        project['ProjectIncharge'] = this.event.request.intent.slots.ProjectIncharge.value;
+        project['Email'] = this.event.request.intent.slots.Email.value;
+        storage.updateEmail(project, ()=> {
+                this.handler.state = states.STARTMODE;
+                this.emit(":ask", "Your project incharge details have been updated . What would you like to do now?");
+        });
+    },
 });
 
 // The handler to delete all project details

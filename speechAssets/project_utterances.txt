@@ -6,7 +6,7 @@ StartProject I want to start a project
 FetchProject I want to fetch details of a project
 FetchProject I want to retrieve details of a project
 
-UpdateProject I want to update details of a project 
+UpdateProject I want to update details of a project
 UpdateProject I want to modify details of a project
 
 DeleteProject I want to delete a project
@@ -18,10 +18,10 @@ AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName} {fo
 
 AddInchargeIntent the sub task of this project is {this|SubTask}
 AddInchargeIntent the sub task of this project is {this|SubTask} {is|SubTask}
-AddInchargeIntent the sub task of this project is {this|SubTask} {is|SubTask} {task|SubTask} 
+AddInchargeIntent the sub task of this project is {this|SubTask} {is|SubTask} {task|SubTask}
 
-AddDeadlineIntent the project incharge is {first|ProjectIncharge}
-AddDeadlineIntent the project incharge is {first|ProjectIncharge} {last|ProjectIncharge}
+AddDeadlineIntent the project incharge is {first|ProjectIncharge} and the email id is {mail|Email}
+AddDeadlineIntent the project incharge is {first|ProjectIncharge} {last|ProjectIncharge} and the email id is {mail|Email}
 
 AddStatusIntent the deadline is {Deadline}
 AddFinalIntent the status is {Status}
@@ -49,6 +49,11 @@ UpdateDeadline I want to modify the deadline to be {Deadline}
 
 UpdateStatus I want to update the status to be {Status}
 UpdateStatus I want to modify the status to be {Status}
+
+UpdateEmail I want to update the project incharge to be {first|ProjectIncharge} and the email to be {mail|Email}
+UpdateEmail I want to update the project incharge to be {first|ProjectIncharge} {last|ProjectIncharge} and the email to be {mail|Email}
+UpdateEmail I want to modify the project incharge to be {first|ProjectIncharge} and the email to be {mail|Email}
+UpdateEmail I want to modify the project incharge to be {first|ProjectIncharge} {last|ProjectIncharge} and the email to be {mail|Email}
 
 DeleteSubTask the project I want to delete is {project|ProjectName}
 DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName}
