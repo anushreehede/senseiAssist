@@ -82,7 +82,7 @@ var storage = (function() {
                 ":status": project['Status']
                }
             };
-            email.send(project, () => {
+            email.sendStatus(project, () => {
             });
             dynamodb.update(params, function(err, data){
                 if(err){

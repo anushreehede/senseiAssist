@@ -26,12 +26,14 @@ var email = (function(){
             }
 	}));
     // text and subject for email
-	var text = 'Dear '+project['ProjectIncharge']+', \nThe project "'+project['ProjectName']+'" with sub task "'+project['SubTask']+'" has updated its status to "'+project['Status']+'". Your deadline is '+project['Deadline']+'. Thank you. ';
-    var subject = "PROJECT - " +project['ProjectName']+" - "+project['SubTask']+" UPDATE"
+	var text = "Dear "+project.ProjectIncharge+",\nThe project '"+project.ProjectName+"' with sub task '"+project.SubTask+"' is due on "+project.Deadline+" and the current status is '"+project.Status+"'. \nFrom Sensei Assistant.";
+        
+    var subject = "PROJECT - " +project['ProjectName']+" - "+project['SubTask']+" DEADLINE REMINDER"
+            
     // email options/details
 	var mailOptions = {
 	    from: 'Sensei Office Assistant <shuttler22@gmail.com>',
-	    to: project['Email'], 
+	    to: project.Email, 
         subject: subject,
 	    text: text 
 	};
