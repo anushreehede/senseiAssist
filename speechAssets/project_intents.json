@@ -55,7 +55,7 @@
             ]
         },
         {
-            "intent": "FetchSubTask",
+            "intent": "FetchSubtask",
             "slots": [
                 {
                     "name": "ProjectName",

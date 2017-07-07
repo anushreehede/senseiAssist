@@ -1,7 +1,3 @@
-/**
- * Created by Biswajit on 7/5/2017.
- */
-
 // requiring AWS module and client
 const AWS = require('aws-sdk') ;
 const docClient = new AWS.DynamoDB.DocumentClient({region: 'us-east-1'}) ;
@@ -22,13 +18,8 @@ exports.handler = function (e,ctx,callback) {
         //  ":st":"notstarted"
         //}
     };
-
-
-
-
     console.log("Scanning Sensei Orders table.");
     docClient.scan(params, onScan);
-
 
 
 };
@@ -39,23 +30,14 @@ function onScan(err, data) {
         console.error("Unable to scan the table. Error JSON:", JSON.stringify(err, null, 2));
     }
     else {
-
-
-        // print all the movies
         console.log("Scan succeeded.");
         
             data.Items.forEach(function (SenseiProjects) {
                 if(SenseiProjects.Status != 'completed' && SenseiProjects.Status != 'complete' && SenseiProjects.Status != 'finished' && SenseiProjects.Status != 'ended' && SenseiProjects.Status != 'closed') {
-                    /*console.log(SenseiProjects.Deadline);
-                    console.log(SenseiProjects.SubTask);
-                    console.log(SenseiProjects.Email);*/
-                    
-                    email.send(SenseiProjects, () => {
+                email.send(SenseiProjects, () => {
                         console.log('Email reminder sent');
-                    });
-                    
+                    });   
                 }
-               
             });
     }
 }

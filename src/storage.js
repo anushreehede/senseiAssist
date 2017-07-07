@@ -7,13 +7,15 @@ AWS.config.update({
 	endpoint: "https://dynamodb.us-east-1.amazonaws.com"
 });
 
-// Requiring email information
-var email = require('./email');
+// Requiring nodemailer modules
+var nodemailer = require('nodemailer');
+var smtpTransport = require('nodemailer-smtp-transport');
 
 // main storage variable which has functions of saving, fetching and updating data
 var storage = (function() {
 	var dynamodb = new AWS.DynamoDB.DocumentClient();
 	return {
+        
         // saving a project 
 		save: function(project, callback) {
 			var params = {
@@ -31,6 +33,7 @@ var storage = (function() {
 				callback();
 			});
 		},
+        
         // fetching a project with project name and sub task as key
 		getProject: function(project, callback) {
 			var params = {
@@ -41,9 +44,14 @@ var storage = (function() {
 				}
 			};
 			dynamodb.get(params, function(err, data) {
+                if(err){
+                    console.log("The error is in get function"+err);
+                } else{
 				callback(data.Item);
+                }
 			});
 		},
+        
         // updates the deadline with given value
         updateDeadline: function(project, callback){
             var params = {
@@ -66,33 +74,75 @@ var storage = (function() {
                 }
             });
         },
+        
         // updates the status with given value, sending email to project incharge
-        updateStatus: function(project, callback) {
+        updateStatus: function(project, status, callback) {
+            // getting the new project status
+            project['Status'] = status; 
+            
+            // dynamodb parameters for status update 
             var params = {
-
-            TableName: 'SenseiProjects',
-            Key: {
-                ProjectName: project['ProjectName'] ,
-                SubTask: project['SubTask']
-               },
-            UpdateExpression: "set #status = :status",
-            ExpressionAttributeNames: {
-                "#status" : 'Status'},
-            ExpressionAttributeValues: {
-                ":status": project['Status']
-               }
+                TableName: 'SenseiProjects',
+                Key: {
+                   ProjectName: project['ProjectName'] ,
+                   SubTask: project['SubTask']
+                },
+                UpdateExpression: "set #status = :status",
+                ExpressionAttributeNames: {
+                   "#status" : 'Status'},
+                ExpressionAttributeValues: {
+                   ":status": project['Status']
+                }
             };
-            email.sendStatus(project, () => {
-            });
-            dynamodb.update(params, function(err, data){
-                if(err){
-                    console.log(err);
-                }
-                else{
-                    callback();
-                }
+             
+            // xoath2 generator for sending emails
+            var generator = require('xoauth2').createXOAuth2Generator({
+              user: 'example@gmail.com',
+              clientId: "xxxx",
+              clientSecret: "xxxx",
+              refreshToken: "xxxx",
+              accessToken: "xxxx",
+              expires: 00000
+           });
+            
+            // SMTP transporter object
+	        var transporter = nodemailer.createTransport(smtpTransport({
+              service: 'gmail',
+	          auth: {
+	             xoauth2: generator
+              }
+	        }));
+            
+            // text and subject for email
+	        var text = 'Dear ' + project['ProjectIncharge']+',\nThe project "'+project['ProjectName']+'" with sub task "'+project['SubTask']+'" has updated its status to "'+project['Status']+'". Your deadline is '+project['Deadline']+'. \nFrom Sensei Assistant.';
+            
+            var subject = "PROJECT - " +project['ProjectName']+" - "+project['SubTask']+" UPDATE";
+            
+            // email options/details
+	        var mailOptions = {
+	          from: 'Sensei Office Assistant   <example@gmail.com>',
+	          to: project['Email'], 
+              subject: subject,
+	          text: text 
+	         };
+           
+            // sending the mail via SMTP
+	        transporter.sendMail(mailOptions,
+              function(error, info){
+                 if(error){
+                   console.log("Error is inside sendmail"+error);
+                 } else {
+                   dynamodb.update(params,    function(err, data){
+                      if(err){
+                        console.log("This is an update error\n"+err);
+                      }else{
+                        callback();
+                      }
+                   });  
+                 }
             });
         },
+        
         // updates the email with given value
         updateEmail: function(project, callback){
             var params = {
@@ -116,6 +166,7 @@ var storage = (function() {
                 }
             });
         },
+        
         // deletes the project details
         deleteProject: function(project, callback) {
 			var params = {
@@ -131,5 +182,6 @@ var storage = (function() {
 		}
     }
 })();
+
 // exporting the storage variable
 module.exports = storage;

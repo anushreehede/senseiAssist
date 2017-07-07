@@ -1,0 +1,25 @@
+{
+  "name": "senseiassist",
+  "version": "1.0.0",
+  "description": "Alexa skill for project management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anushreehede/senseiAssist.git"
+  },
+  "keywords": [
+    "office",
+    "assistant",
+    "alexa",
+    "skill"
+  ],
+  "author": "Anushree Hede, Biswajit Biswas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anushreehede/senseiAssist/issues"
+  },
+  "homepage": "https://github.com/anushreehede/senseiAssist#readme"
+}

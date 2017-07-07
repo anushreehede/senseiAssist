@@ -26,14 +26,14 @@ AddDeadlineIntent the project incharge is {first|ProjectIncharge} {last|ProjectI
 AddStatusIntent the deadline is {Deadline}
 AddFinalIntent the status is {Status}
 
-FetchSubTask the project I want is {project|ProjectName}
-FetchSubTask the project I want is {project|ProjectName} {one|ProjectName}
-FetchSubTask the project I want is {project|ProjectName} {one|ProjectName} {for|ProjectName}
-FetchSubTask the project I want is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+FetchSubtask I want the project {project|ProjectName} 
+FetchSubtask I want the project {project|ProjectName} {one|ProjectName}
+FetchSubtask I want the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
+FetchSubtask I want the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
 
-FetchFinalIntent the sub task I want is {this|SubTask}
-FetchFinalIntent the sub task I want is {this|SubTask} {is|SubTask}
-FetchFinalIntent the sub task I want is {this|SubTask} {is|SubTask} {task|SubTask}
+FetchFinalIntent I want the subtask {this|SubTask}
+FetchFinalIntent I want the subtask {this|SubTask} {is|SubTask}
+FetchFinalIntent I want the subtask {this|SubTask} {is|SubTask} {task|SubTask}
 
 UpdateProjectName I want to update the project {project|ProjectName}
 UpdateProjectName I want to update the project {project|ProjectName} {one|ProjectName}

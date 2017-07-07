@@ -11,12 +11,12 @@ var email = (function(){
             // IMPORTANT USE YOUR OWN CREDENTIALS
             var generator = require('xoauth2').createXOAuth2Generator({
               user: 'example@gmail.com',
-              clientId: "xxxxxxxxxxxxxxxx.apps.googleusercontent.com",
-              clientSecret: "xxxxxxxxxxxxxxxx",
-              refreshToken: "xxxxxxxxxxxxxxxx",
-              accessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-              expires: 000000000000000
-            }
+              clientId: "xxxx",
+              clientSecret: "xxxx",
+              refreshToken: "xxxx",
+              accessToken: "xxxx",
+              expires: 00000
+           });
     );
     // SMTP transporter object
 	var transporter = nodemailer.createTransport(smtpTransport({
@@ -32,7 +32,7 @@ var email = (function(){
             
     // email options/details
 	var mailOptions = {
-	    from: 'Sensei Office Assistant <shuttler22@gmail.com>',
+	    from: 'Sensei Office Assistant <example@gmail.com>',
 	    to: project.Email, 
         subject: subject,
 	    text: text 
