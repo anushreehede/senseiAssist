@@ -10,12 +10,12 @@ StartProject I would like to create a new project
 StartProject I would like to add a project
 StartProject I would like to start a project
 StartProject I would like to create a project
-StartProject Can you add a new project?
-StartProject Can you start a new project?
-StartProject Can you create a new project?
-StartProject Can you add a project?
-StartProject Can you start a project?
-StartProject Can you create a project?
+StartProject Can you add a new project
+StartProject Can you start a new project
+StartProject Can you create a new project
+StartProject Can you add a project
+StartProject Can you start a project
+StartProject Can you create a project
 StartProject Add a new project
 StartProject Start a new project
 StartProject Create a new project
@@ -31,9 +31,9 @@ FetchProject I want to get details of a project
 FetchProject I want to know details of a project
 FetchProject I would like to get details of a project
 FetchProject I would like to know details of a project
-FetchProject Can you fetch details of a project?
-FetchProject Can you retrieve details of a project?
-FetchProject Can you get details of a project?
+FetchProject Can you fetch details of a project
+FetchProject Can you retrieve details of a project
+FetchProject Can you get details of a project
 FetchProject Fetch details of a project
 FetchProject Retrieve details of a project
 FetchProject Get details of a project
@@ -46,10 +46,10 @@ UpdateProject I would like to update details of a project
 UpdateProject I would like to modify details of a project
 UpdateProject I would like to change details of a project
 UpdateProject I would like to make changes to a project
-UpdateProject Can you update details of a project?
-UpdateProject Can you modify details of a project?
-UpdateProject Can you change details of a project?
-UpdateProject Can you make changes to a project?
+UpdateProject Can you update details of a project
+UpdateProject Can you modify details of a project
+UpdateProject Can you change details of a project
+UpdateProject Can you make changes to a project
 UpdateProject Update details of a project
 UpdateProject Modify details of a project
 UpdateProject Change details of a project
@@ -61,9 +61,9 @@ DeleteProject I want to remove a project
 DeleteProject I would like to delete a project
 DeleteProject I would like to discard a project
 DeleteProject I would like to remove a project
-DeleteProject Can you delete a project?
-DeleteProject Can you discard a project?
-DeleteProject Can you remove a project?
+DeleteProject Can you delete a project
+DeleteProject Can you discard a project
+DeleteProject Can you remove a project
 DeleteProject Delete a project
 DeleteProject Discard a project
 DeleteProject Remove a project
