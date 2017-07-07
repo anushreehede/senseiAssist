@@ -1,24 +1,81 @@
 StartProject I want to add a new project
 StartProject I want to start a new project
 StartProject I want to create a new project
+StartProject I want to add a project
 StartProject I want to start a project
+StartProject I want to create a project
+StartProject I would like to add a new project
+StartProject I would like to start a new project
+StartProject I would like to create a new project
+StartProject I would like to add a project
+StartProject I would like to start a project
+StartProject I would like to create a project
+StartProject Can you add a new project?
+StartProject Can you start a new project?
+StartProject Can you create a new project?
+StartProject Can you add a project?
+StartProject Can you start a project?
+StartProject Can you create a project?
+StartProject Add a new project
+StartProject Start a new project
+StartProject Create a new project
+StartProject Add a project
+StartProject Start a project
+StartProject Create a project
 
 FetchProject I want to fetch details of a project
 FetchProject I want to retrieve details of a project
+FetchProject I would like to fetch details of a project
+FetchProject I would like to retrieve details of a project
+FetchProject I want to get details of a project
+FetchProject I want to know details of a project
+FetchProject I would like to get details of a project
+FetchProject I would like to know details of a project
+FetchProject Can you fetch details of a project?
+FetchProject Can you retrieve details of a project?
+FetchProject Can you get details of a project?
+FetchProject Fetch details of a project
+FetchProject Retrieve details of a project
+FetchProject Get details of a project
 
 UpdateProject I want to update details of a project
 UpdateProject I want to modify details of a project
+UpdateProject I want to change details of a project
+UpdateProject I want to make changes to a project
+UpdateProject I would like to update details of a project
+UpdateProject I would like to modify details of a project
+UpdateProject I would like to change details of a project
+UpdateProject I would like to make changes to a project
+UpdateProject Can you update details of a project?
+UpdateProject Can you modify details of a project?
+UpdateProject Can you change details of a project?
+UpdateProject Can you make changes to a project?
+UpdateProject Update details of a project
+UpdateProject Modify details of a project
+UpdateProject Change details of a project
+UpdateProject Make changes to a project
 
 DeleteProject I want to delete a project
+DeleteProject I want to discard a project
+DeleteProject I want to remove a project
+DeleteProject I would like to delete a project
+DeleteProject I would like to discard a project
+DeleteProject I would like to remove a project
+DeleteProject Can you delete a project?
+DeleteProject Can you discard a project?
+DeleteProject Can you remove a project?
+DeleteProject Delete a project
+DeleteProject Discard a project
+DeleteProject Remove a project
 
 AddSubtaskIntent the project name is {project|ProjectName}
 AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName}
 AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName} {for|ProjectName}
 AddSubtaskIntent the project name is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
 
-AddInchargeIntent the sub task of this project is {this|SubTask}
-AddInchargeIntent the sub task of this project is {this|SubTask} {is|SubTask}
-AddInchargeIntent the sub task of this project is {this|SubTask} {is|SubTask} {task|SubTask}
+AddInchargeIntent the sub task is {this|SubTask}
+AddInchargeIntent the sub task is {this|SubTask} {is|SubTask}
+AddInchargeIntent the sub task is {this|SubTask} {is|SubTask} {task|SubTask}
 
 AddDeadlineIntent the project incharge is {first|ProjectIncharge} and the email id is {mail|Email}
 AddDeadlineIntent the project incharge is {first|ProjectIncharge} {last|ProjectIncharge} and the email id is {mail|Email}
@@ -26,40 +83,135 @@ AddDeadlineIntent the project incharge is {first|ProjectIncharge} {last|ProjectI
 AddStatusIntent the deadline is {Deadline}
 AddFinalIntent the status is {Status}
 
-FetchSubtask I want the project {project|ProjectName} 
-FetchSubtask I want the project {project|ProjectName} {one|ProjectName}
-FetchSubtask I want the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
-FetchSubtask I want the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+FetchSubtask I want to fetch the project {project|ProjectName} 
+FetchSubtask I want to fetch the project {project|ProjectName} {one|ProjectName}
+FetchSubtask I want to fetch the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
+FetchSubtask I want to fetch the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+FetchSubtask I want to retrieve the project {project|ProjectName} 
+FetchSubtask I want to retrieve the project {project|ProjectName} {one|ProjectName}
+FetchSubtask I want to retrieve the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
+FetchSubtask I want to retrieve the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+FetchSubtask I want to get the project {project|ProjectName} 
+FetchSubtask I want to get the project {project|ProjectName} {one|ProjectName}
+FetchSubtask I want to get the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
+FetchSubtask I want to get the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+FetchSubtask I would like to fetch the project {project|ProjectName} 
+FetchSubtask I would like to fetch the project {project|ProjectName} {one|ProjectName}
+FetchSubtask I would like to fetch the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
+FetchSubtask I would like to fetch the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+FetchSubtask I would like to retrieve the project {project|ProjectName} 
+FetchSubtask I would like to retrieve the project {project|ProjectName} {one|ProjectName}
+FetchSubtask I would like to retrieve the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
+FetchSubtask I would like to retrieve the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+FetchSubtask I would like to get the project {project|ProjectName} 
+FetchSubtask I would like to get the project {project|ProjectName} {one|ProjectName}
+FetchSubtask I would like to get the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
+FetchSubtask I would like to get the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
 
-FetchFinalIntent I want the subtask {this|SubTask}
-FetchFinalIntent I want the subtask {this|SubTask} {is|SubTask}
-FetchFinalIntent I want the subtask {this|SubTask} {is|SubTask} {task|SubTask}
+FetchFinalIntent I want to fetch the subtask {this|SubTask}
+FetchFinalIntent I want to fetch the subtask {this|SubTask} {is|SubTask}
+FetchFinalIntent I want to fetch the subtask {this|SubTask} {is|SubTask} {task|SubTask}
+FetchFinalIntent I would like to fetch the subtask {this|SubTask}
+FetchFinalIntent I would like to fetch the subtask {this|SubTask} {is|SubTask}
+FetchFinalIntent I would like to fetch the subtask {this|SubTask} {is|SubTask} {task|SubTask}
+FetchFinalIntent I want to retrieve the subtask {this|SubTask}
+FetchFinalIntent I want to retrieve the subtask {this|SubTask} {is|SubTask}
+FetchFinalIntent I want to retrieve the subtask {this|SubTask} {is|SubTask} {task|SubTask}
+FetchFinalIntent I would like to retrieve the subtask {this|SubTask}
+FetchFinalIntent I would like to retrieve the subtask {this|SubTask} {is|SubTask}
+FetchFinalIntent I would like to retrieve the subtask {this|SubTask} {is|SubTask} {task|SubTask}
+FetchFinalIntent I want to get the subtask {this|SubTask}
+FetchFinalIntent I want to get the subtask {this|SubTask} {is|SubTask}
+FetchFinalIntent I want to get the subtask {this|SubTask} {is|SubTask} {task|SubTask}
+FetchFinalIntent I would like to get the subtask {this|SubTask}
+FetchFinalIntent I would like to get the subtask {this|SubTask} {is|SubTask}
+FetchFinalIntent I would like to get the subtask {this|SubTask} {is|SubTask} {task|SubTask}
 
 UpdateProjectName I want to update the project {project|ProjectName}
 UpdateProjectName I want to update the project {project|ProjectName} {one|ProjectName}
 UpdateProjectName I want to update the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
 UpdateProjectName I want to update the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+UpdateProjectName I would like to update the project {project|ProjectName}
+UpdateProjectName I would like to update the project {project|ProjectName} {one|ProjectName}
+UpdateProjectName I would like to update the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+UpdateProjectName I would like to update the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+UpdateProjectName I want to modify the project {project|ProjectName}
+UpdateProjectName I want to modify the project {project|ProjectName} {one|ProjectName}
+UpdateProjectName I want to modify the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+UpdateProjectName I want to modify the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+UpdateProjectName I would like to modify the project {project|ProjectName}
+UpdateProjectName I would like to modify the project {project|ProjectName} {one|ProjectName}
+UpdateProjectName I would like to modify the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+UpdateProjectName I would like to modify the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
 
-UpdateSubtask The sub task is {this|SubTask}
-UpdateSubtask The sub task is {this|SubTask} {is|SubTask}
-UpdateSubtask The sub task is {this|SubTask} {is|SubTask} {task|SubTask}
+UpdateSubtask I want to update the sub task {this|SubTask}
+UpdateSubtask I want to update the sub task {this|SubTask} {is|SubTask}
+UpdateSubtask I want to update the sub task {this|SubTask} {is|SubTask} {task|SubTask}
+UpdateSubtask I would like to update the sub task {this|SubTask}
+UpdateSubtask I would like to update the sub task {this|SubTask} {is|SubTask}
+UpdateSubtask I would like to update the sub task {this|SubTask} {is|SubTask} {task|SubTask}
+UpdateSubtask I want to modify the sub task {this|SubTask}
+UpdateSubtask I want to modify the sub task {this|SubTask} {is|SubTask}
+UpdateSubtask I want to modify the sub task {this|SubTask} {is|SubTask} {task|SubTask}
+UpdateSubtask I would like to modify the sub task {this|SubTask}
+UpdateSubtask I would like to modify the sub task {this|SubTask} {is|SubTask}
+UpdateSubtask I would like to modify the sub task {this|SubTask} {is|SubTask} {task|SubTask}
 
-UpdateDeadline I want to update the deadline to be {Deadline}
-UpdateDeadline I want to modify the deadline to be {Deadline}
+UpdateDeadline I want the new deadline to be {Deadline}
+UpdateDeadline I want to modify the deadline to {Deadline}
+UpdateDeadline I want to change the deadline to {Deadline}
 
-UpdateStatus I want to update the status to be {Status}
-UpdateStatus I want to modify the status to be {Status}
+UpdateStatus I want the new status to be {Status}
+UpdateStatus I want to modify the status to {Status}
+UpdateStatus I want to change the status to {Status}
 
-UpdateEmail I want to update the project incharge to be {first|ProjectIncharge} and the email to be {mail|Email}
-UpdateEmail I want to update the project incharge to be {first|ProjectIncharge} {last|ProjectIncharge} and the email to be {mail|Email}
-UpdateEmail I want to modify the project incharge to be {first|ProjectIncharge} and the email to be {mail|Email}
-UpdateEmail I want to modify the project incharge to be {first|ProjectIncharge} {last|ProjectIncharge} and the email to be {mail|Email}
+UpdateEmail I want the new project incharge to be {first|ProjectIncharge} and the new email to be {mail|Email}
+UpdateEmail I want the new project incharge to be {first|ProjectIncharge} {last|ProjectIncharge} and the new email to be {mail|Email}
+UpdateEmail I want to modify the project incharge to {first|ProjectIncharge} and the email to {mail|Email}
+UpdateEmail I want to modify the project incharge to {first|ProjectIncharge} {last|ProjectIncharge} and the email to {mail|Email}
+UpdateEmail I want to change the project incharge to {first|ProjectIncharge} and the email to {mail|Email}
+UpdateEmail I want to change the project incharge to {first|ProjectIncharge} {last|ProjectIncharge} and the email to {mail|Email}
 
 DeleteSubTask the project I want to delete is {project|ProjectName}
 DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName}
 DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName}
 DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask the project I would like to delete is {project|ProjectName}
+DeleteSubTask the project I would like to delete is {project|ProjectName} {one|ProjectName}
+DeleteSubTask the project I would like to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask the project I would like to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask the project I want to remove is {project|ProjectName}
+DeleteSubTask the project I want to remove is {project|ProjectName} {one|ProjectName}
+DeleteSubTask the project I want to remove is {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask the project I want to remove is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask the project I would like to remove is {project|ProjectName}
+DeleteSubTask the project I would like to remove is {project|ProjectName} {one|ProjectName}
+DeleteSubTask the project I would like to remove is {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask the project I would like to remove is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask the project I want to discard is {project|ProjectName}
+DeleteSubTask the project I want to discard is {project|ProjectName} {one|ProjectName}
+DeleteSubTask the project I want to discard is {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask the project I want to discard is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask the project I would like to discard is {project|ProjectName}
+DeleteSubTask the project I would like to discard is {project|ProjectName} {one|ProjectName}
+DeleteSubTask the project I would like to discard is {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask the project I would like to discard is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
 
 DeleteFinalIntent the sub task I want to delete is {this|SubTask}
 DeleteFinalIntent the sub task I want to delete is {this|SubTask} {is|SubTask}
 DeleteFinalIntent the sub task I want to delete is {this|SubTask} {is|SubTask} {task|SubTask}
+DeleteFinalIntent the sub task I would like to delete is {this|SubTask}
+DeleteFinalIntent the sub task I would like to delete is {this|SubTask} {is|SubTask}
+DeleteFinalIntent the sub task I would like to delete is {this|SubTask} {is|SubTask} {task|SubTask}
+DeleteFinalIntent the sub task I want to remove is {this|SubTask}
+DeleteFinalIntent the sub task I want to remove is {this|SubTask} {is|SubTask}
+DeleteFinalIntent the sub task I want to remove is {this|SubTask} {is|SubTask} {task|SubTask}
+DeleteFinalIntent the sub task I would like to remove is {this|SubTask}
+DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {is|SubTask}
+DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {is|SubTask} {task|SubTask}
+DeleteFinalIntent the sub task I want to discard is {this|SubTask}
+DeleteFinalIntent the sub task I want to discard is {this|SubTask} {is|SubTask}
+DeleteFinalIntent the sub task I want to discard is {this|SubTask} {is|SubTask} {task|SubTask}
+DeleteFinalIntent the sub task I would like to discard is {this|SubTask}
+DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {is|SubTask}
+DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {is|SubTask} {task|SubTask}
