@@ -15,7 +15,7 @@ var email = (function(){
               clientSecret: "xxxx",
               refreshToken: "xxxx",
               accessToken: "xxxx",
-              expires: 00000
+              expires: 0000
            });
     );
     // SMTP transporter object

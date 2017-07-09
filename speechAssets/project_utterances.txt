@@ -1,3 +1,6 @@
+LaunchRequest Open office assist
+LaunchRequest Launch office assist
+
 StartProject I want to add a new project
 StartProject I want to start a new project
 StartProject I want to create a new project
@@ -215,3 +218,20 @@ DeleteFinalIntent the sub task I want to discard is {this|SubTask} {is|SubTask} 
 DeleteFinalIntent the sub task I would like to discard is {this|SubTask}
 DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {is|SubTask}
 DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {is|SubTask} {task|SubTask}
+
+AMAZON.HelpIntent help
+AMAZON.HelpIntent help me 
+ProjectHelpIntent how do I start
+ProjectHelpIntent help menu
+AddHelpIntent how do I add a project
+AddHelpIntent how do I create a project
+AddHelpIntent add help
+FetchHelpIntent how to I fetch a project
+FetchHelpIntent how to I retrieve a project
+FetchHelpIntent fetch help
+UpdateHelpIntent how do I update details of a project
+UpdateHelpIntent how do I update a project
+UpdateHelpIntent how do I modify details of a project
+UpdateHelpIntent update help
+DeleteHelpIntent how do I delete a project
+DeleteHelpIntent delete help

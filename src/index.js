@@ -33,6 +33,13 @@ var newSessionHandlers = {
         this.handler.state = states.STARTMODE;
         this.emit(':ask', "Welcome to Sensei office assistant, what can i do for you?");
     },
+    'LaunchRequest': function() {
+        this.handler.state = states.STARTMODE;
+        this.emit(':ask', "Welcome to Sensei office assistant, what can I do for you?");
+    },
+    'AMAZON.HelpIntent': function() {
+        this.emit(':ask', "Say launch office assist or open office assist to begin.");
+    },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
     },
@@ -44,7 +51,7 @@ var newSessionHandlers = {
         this.emit(":tell", "Goodbye!");
     },
     'Unhandled': function() {
-        this.emit(':tell', "This intent is unhandled");
+        this.emit(':tell', "I didn't catch that!");
     }
 };
 
@@ -73,6 +80,9 @@ var ProjectHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
         this.handler.state = states.DELETEMODE;
         this.emit(':ask', 'Tell me the project name which you would like to delete?');
     },
+    "ProjectHelpIntent": function() {
+        this.emit(':ask', 'Tell me whether you would like to add, retrieve, update or delete project details.');
+    },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
     },
@@ -84,7 +94,7 @@ var ProjectHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
         this.emit(":tell", "Goodbye!");
     },
     "Unhandled": function(){
-        this.emit(':ask', 'This intent is unhandled');
+        this.emit(':ask', "I didn't catch that! Say help menu if you aren't sure.");
     }
 });
 
@@ -137,6 +147,9 @@ var startProjectHandler = Alexa.CreateStateHandler(states.PROJECTMODE, {
                 this.emit(":ask", "Your project and subtask has been recorded. What would you like to do now?");
         });
     },
+    "AddHelpIntent": function() {
+      this.emit(':ask', 'One by one, clearly mention the project detail you would like to add.');
+    },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
     },
@@ -148,7 +161,7 @@ var startProjectHandler = Alexa.CreateStateHandler(states.PROJECTMODE, {
         this.emit(":tell", "Goodbye!");
     },
     'Unhandled': function() {
-        this.emit(':tell', "This intent is unhandled");
+        this.emit(':tell', "I didn't catch that! Say add help if you aren't sure.");
     }
 });
 
@@ -157,6 +170,9 @@ var retrieveProjectHandler = Alexa.CreateStateHandler(states.FETCHMODE, {
     'NewSession': function () {
         this.emit('NewSession'); // Uses the handler in newSessionHandlers
     },
+    "FetchHelpIntent": function(){
+        this.emit(':ask', 'One by one, clearly mention the project name and sub task you want to retrieve.');
+    },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
     },
@@ -168,7 +184,7 @@ var retrieveProjectHandler = Alexa.CreateStateHandler(states.FETCHMODE, {
         this.emit(":tell", "Goodbye!");
     },
     'Unhandled': function() {
-        this.emit(':tell', "This intent is unhandled");
+        this.emit(':tell', "I didn't catch that! Say fetch help if you aren't sure.");
     },
     
     // asks for the sub task
@@ -193,6 +209,9 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
     'NewSession': function () {
         this.emit('NewSession'); // Uses the handler in newSessionHandlers
     },
+    "UpdateHelpIntent": function() {
+        this.emit(':ask', 'Clearly mention the project name and sub task, and then the new value of the deadline, status or project incharge details you want to update.');
+    },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
     },
@@ -204,7 +223,7 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
         this.emit(":tell", "Goodbye!");
     },
     'Unhandled': function() {
-        this.emit(':tell', "This intent is unhandled");
+        this.emit(':tell', "I didn't catch that! Say update help if you aren't sure.");
     },
     // asks for subtask to update
     'UpdateProjectName': function(){
@@ -254,6 +273,9 @@ var deleteProjectHandler = Alexa.CreateStateHandler(states.DELETEMODE, {
     'NewSession': function () {
         this.emit('NewSession'); // Uses the handler in newSessionHandlers
     },
+    "DeleteHelpIntent": function() {
+        this.emit(':ask', 'One by one, clearly mention the project name and sub task which you want to delete.');
+    },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
     },
@@ -265,7 +287,7 @@ var deleteProjectHandler = Alexa.CreateStateHandler(states.DELETEMODE, {
         this.emit(":tell", "Goodbye!");
     },
     'Unhandled': function() {
-        this.emit(':tell', "This intent is unhandled");
+        this.emit(':tell', "I didn't catch that! Say delete help if you aren't sure.");
     },
     
     // asks for the sub task

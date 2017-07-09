@@ -1,5 +1,6 @@
 {
     "intents": [
+        {"intent": "LaunchRequest"},
         {"intent": "StartProject"  },
         {"intent": "FetchProject"  },
         {"intent": "UpdateProject" },
@@ -139,6 +140,11 @@
                 }
             ]
         },
+        {"intent": "ProjectHelpIntent"},
+        {"intent": "AddHelpIntent"},
+        {"intent": "FetchHelpIntent"},
+        {"intent": "UpdateHelpIntent"},
+        {"intent": "DeleteHelpIntent"},
         {"intent": "AMAZON.YesIntent"},
         {"intent": "AMAZON.NoIntent"},
         {"intent": "AMAZON.HelpIntent"},
