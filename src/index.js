@@ -8,7 +8,7 @@ var storage = require('./storage');
 exports.handler = function(event,context,callback) {
     // Create Alexa handler
     var alexa = Alexa.handler(event, context);
-    alexa.appId = 'xxxx'; // App ID given on Amazon Developers console
+    //alexa.appId = 'xxxx'; // App ID given on Amazon Developers console
     
     // Register all the handlers
     alexa.registerHandlers(newSessionHandlers, ProjectHandlers, startProjectHandler, retrieveProjectHandler, updateProjectHandler, deleteProjectHandler);
@@ -31,12 +31,12 @@ var newSessionHandlers = {
     // The main intent of this handler
     'NewSession': function() {
         this.handler.state = states.STARTMODE;
-        this.emit(':ask', "Welcome to Sensei office assistant, what can i do for you?");
-    },
-    'LaunchRequest': function() {
-        this.handler.state = states.STARTMODE;
         this.emit(':ask', "Welcome to Sensei office assistant, what can I do for you?");
     },
+    /*'LaunchRequest': function() {
+        this.handler.state = states.STARTMODE;
+        this.emit(':ask', "Welcome to Sensei office assistant, what can I do for you?");
+    },*/
     'AMAZON.HelpIntent': function() {
         this.emit(':ask', "Say launch office assist or open office assist to begin.");
     },
@@ -69,7 +69,7 @@ var ProjectHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
     // Intent to fetch the details of a project, asks for the project name
     "FetchProject": function(){
         this.handler.state = states.FETCHMODE;
-        this.emit(':ask', 'Tell me the project name which you would like to retrieve?');
+        this.emit(':ask', 'Tell me the project name which you would like to retrieve.');
     },
     // Intent to update the details of a particular project
     "UpdateProject": function(){
@@ -78,7 +78,7 @@ var ProjectHandlers = Alexa.CreateStateHandler(states.STARTMODE, {
     },
     "DeleteProject": function(){
         this.handler.state = states.DELETEMODE;
-        this.emit(':ask', 'Tell me the project name which you would like to delete?');
+        this.emit(':ask', 'Tell me the project name which you would like to delete.');
     },
     "ProjectHelpIntent": function() {
         this.emit(':ask', 'Tell me whether you would like to add, retrieve, update or delete project details.');
@@ -148,7 +148,7 @@ var startProjectHandler = Alexa.CreateStateHandler(states.PROJECTMODE, {
         });
     },
     "AddHelpIntent": function() {
-      this.emit(':ask', 'One by one, clearly mention the project detail you would like to add.');
+      this.emit(':ask', 'One by one, clearly mention each project detail you would like to add.');
     },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
@@ -171,7 +171,7 @@ var retrieveProjectHandler = Alexa.CreateStateHandler(states.FETCHMODE, {
         this.emit('NewSession'); // Uses the handler in newSessionHandlers
     },
     "FetchHelpIntent": function(){
-        this.emit(':ask', 'One by one, clearly mention the project name and sub task you want to retrieve.');
+        this.emit(':ask', 'Say I want to fetch the project nameofproject followed by I want to fetch the sub task nameofsubtask.');
     },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
@@ -210,7 +210,7 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
         this.emit('NewSession'); // Uses the handler in newSessionHandlers
     },
     "UpdateHelpIntent": function() {
-        this.emit(':ask', 'Clearly mention the project name and sub task, and then the new value of the deadline, status or project incharge details you want to update.');
+        this.emit(':ask', 'Say I want to update the project nameofproject then , I want to update the sub task nameofsubtask, followed by the field and its value to be updated.');
     },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  
@@ -274,7 +274,7 @@ var deleteProjectHandler = Alexa.CreateStateHandler(states.DELETEMODE, {
         this.emit('NewSession'); // Uses the handler in newSessionHandlers
     },
     "DeleteHelpIntent": function() {
-        this.emit(':ask', 'One by one, clearly mention the project name and sub task which you want to delete.');
+        this.emit(':ask', 'Say I want to delete the project nameofproject followed by I want to delete the sub task nameofsubtask.');
     },
     "AMAZON.StopIntent": function() {
       this.emit(':tell', "Goodbye!");  

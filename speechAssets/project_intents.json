@@ -51,7 +51,7 @@
             "slots": [
                 {
                     "name": "Status",
-                    "type": "STATUS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },
@@ -105,7 +105,7 @@
             "slots": [
                 {
                     "name": "Status",
-                    "type": "STATUS"
+                    "type": "AMAZON.LITERAL"
                 }
             ]
         },
