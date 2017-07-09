@@ -102,11 +102,11 @@ FetchSubtask I want to get the project {meeting|ProjectName} {security|ProjectNa
 FetchSubtask I want to get the project {technology|ProjectName} {code|ProjectName} {python|ProjectName} {javascript|ProjectName}
 FetchSubtask I would like to fetch the project {hardware|ProjectName} 
 FetchSubtask I would like to fetch the project {education|ProjectName} {foundation|ProjectName}
-FetchSubtask I would like to fetch the project {work|ProjectName} {one|ProjectName} {for|ProjectName} 
-FetchSubtask I would like to fetch the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
-FetchSubtask I would like to retrieve the project {project|ProjectName} 
-FetchSubtask I would like to retrieve the project {project|ProjectName} {one|ProjectName}
-FetchSubtask I would like to retrieve the project {project|ProjectName} {one|ProjectName} {for|ProjectName} 
+FetchSubtask I would like to fetch the project {work|ProjectName} {development|ProjectName} {computer|ProjectName} 
+FetchSubtask I would like to fetch the project {analysis|ProjectName} {study|ProjectName} {presentation|ProjectName} {programmers|ProjectName}
+FetchSubtask I would like to retrieve the project {phone|ProjectName} 
+FetchSubtask I would like to retrieve the project {company|ProjectName} {finance|ProjectName}
+FetchSubtask I would like to retrieve the project {investment|ProjectName} {payroll|ProjectName} {for|ProjectName} 
 FetchSubtask I would like to retrieve the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
 FetchSubtask I would like to get the project {project|ProjectName} 
 FetchSubtask I would like to get the project {project|ProjectName} {one|ProjectName}
@@ -128,8 +128,8 @@ FetchFinalIntent I would like to retrieve the sub task {html|SubTask} {java|SubT
 FetchFinalIntent I want to get the sub task {human|SubTask}
 FetchFinalIntent I want to get the sub task {resource|SubTask} {computer|SubTask}
 FetchFinalIntent I want to get the sub task {logic|SubTask} {final|SubTask} {task|SubTask}
-FetchFinalIntent I would like to get the sub task {this|SubTask}
-FetchFinalIntent I would like to get the sub task {this|SubTask} {project|SubTask}
+FetchFinalIntent I would like to get the sub task {game|SubTask}
+FetchFinalIntent I would like to get the sub task {development|SubTask} {kit|SubTask}
 FetchFinalIntent I would like to get the sub task {this|SubTask} {project|SubTask} {task|SubTask}
 
 UpdateProjectName I want to update the project {project|ProjectName}
@@ -180,49 +180,49 @@ UpdateEmail I want to modify the project incharge to {first|ProjectIncharge} {la
 UpdateEmail I want to change the project incharge to {first|ProjectIncharge} and the email to {mail|Email}
 UpdateEmail I want to change the project incharge to {first|ProjectIncharge} {last|ProjectIncharge} and the email to {mail|Email}
 
-DeleteSubTask the project I want to delete is {project|ProjectName}
-DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName}
-DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName}
-DeleteSubTask the project I want to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
-DeleteSubTask the project I would like to delete is {project|ProjectName}
-DeleteSubTask the project I would like to delete is {project|ProjectName} {one|ProjectName}
-DeleteSubTask the project I would like to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName}
-DeleteSubTask the project I would like to delete is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
-DeleteSubTask the project I want to remove is {project|ProjectName}
-DeleteSubTask the project I want to remove is {project|ProjectName} {one|ProjectName}
-DeleteSubTask the project I want to remove is {project|ProjectName} {one|ProjectName} {for|ProjectName}
-DeleteSubTask the project I want to remove is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
-DeleteSubTask the project I would like to remove is {project|ProjectName}
-DeleteSubTask the project I would like to remove is {project|ProjectName} {one|ProjectName}
-DeleteSubTask the project I would like to remove is {project|ProjectName} {one|ProjectName} {for|ProjectName}
-DeleteSubTask the project I would like to remove is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
-DeleteSubTask the project I want to discard is {project|ProjectName}
-DeleteSubTask the project I want to discard is {project|ProjectName} {one|ProjectName}
-DeleteSubTask the project I want to discard is {project|ProjectName} {one|ProjectName} {for|ProjectName}
-DeleteSubTask the project I want to discard is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
-DeleteSubTask the project I would like to discard is {project|ProjectName}
-DeleteSubTask the project I would like to discard is {project|ProjectName} {one|ProjectName}
-DeleteSubTask the project I would like to discard is {project|ProjectName} {one|ProjectName} {for|ProjectName}
-DeleteSubTask the project I would like to discard is {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask I want to delete the project {project|ProjectName}
+DeleteSubTask I want to delete the project {project|ProjectName} {one|ProjectName}
+DeleteSubTask I want to delete the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask I want to delete the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask I would like to delete the project {project|ProjectName}
+DeleteSubTask I would like to delete the project {project|ProjectName} {one|ProjectName}
+DeleteSubTask I would like to delete the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask I would like to delete the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask I want to remove the project {project|ProjectName}
+DeleteSubTask I want to remove the project {project|ProjectName} {one|ProjectName}
+DeleteSubTask I want to remove the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask I want to remove the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask I would like to remove the project {project|ProjectName}
+DeleteSubTask I would like to remove the project {project|ProjectName} {one|ProjectName}
+DeleteSubTask I would like to remove the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask I would like to remove the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask I want to discard the project {project|ProjectName}
+DeleteSubTask I want to discard the project {project|ProjectName} {one|ProjectName}
+DeleteSubTask I want to discard the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask I want to discard the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
+DeleteSubTask I would like to discard the project {project|ProjectName}
+DeleteSubTask I would like to discard the project {project|ProjectName} {one|ProjectName}
+DeleteSubTask I would like to discard the project {project|ProjectName} {one|ProjectName} {for|ProjectName}
+DeleteSubTask I would like to discard the project {project|ProjectName} {one|ProjectName} {for|ProjectName} {programmers|ProjectName}
 
-DeleteFinalIntent the sub task I want to delete is {this|SubTask}
-DeleteFinalIntent the sub task I want to delete is {this|SubTask} {project|SubTask}
-DeleteFinalIntent the sub task I want to delete is {this|SubTask} {project|SubTask} {task|SubTask}
-DeleteFinalIntent the sub task I would like to delete is {this|SubTask}
-DeleteFinalIntent the sub task I would like to delete is {this|SubTask} {project|SubTask}
-DeleteFinalIntent the sub task I would like to delete is {this|SubTask} {project|SubTask} {task|SubTask}
-DeleteFinalIntent the sub task I want to remove is {this|SubTask}
-DeleteFinalIntent the sub task I want to remove is {this|SubTask} {project|SubTask}
-DeleteFinalIntent the sub task I want to remove is {this|SubTask} {project|SubTask} {task|SubTask}
-DeleteFinalIntent the sub task I would like to remove is {this|SubTask}
-DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {project|SubTask}
-DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {project|SubTask} {task|SubTask}
-DeleteFinalIntent the sub task I want to discard is {this|SubTask}
-DeleteFinalIntent the sub task I want to discard is {this|SubTask} {project|SubTask}
-DeleteFinalIntent the sub task I want to discard is {this|SubTask} {project|SubTask} {task|SubTask}
-DeleteFinalIntent the sub task I would like to discard is {this|SubTask}
-DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {project|SubTask}
-DeleteFinalIntent the sub task I would like to discard is {this|SubTask} {project|SubTask} {task|SubTask}
+DeleteFinalIntent I want to delete the sub task {this|SubTask}
+DeleteFinalIntent I want to delete the sub task {this|SubTask} {project|SubTask}
+DeleteFinalIntent I want to delete the sub task {this|SubTask} {project|SubTask} {task|SubTask}
+DeleteFinalIntent I would like to delete the sub task {this|SubTask}
+DeleteFinalIntent I would like to delete the sub task {this|SubTask} {project|SubTask}
+DeleteFinalIntent I would like to delete the sub task {this|SubTask} {project|SubTask} {task|SubTask}
+DeleteFinalIntent I want to remove the sub task {this|SubTask}
+DeleteFinalIntent I want to remove the sub task {this|SubTask} {project|SubTask}
+DeleteFinalIntent I want to remove the sub task {this|SubTask} {project|SubTask} {task|SubTask}
+DeleteFinalIntent I would like to remove the sub task {this|SubTask}
+DeleteFinalIntent I would like to remove the sub task {this|SubTask} {project|SubTask}
+DeleteFinalIntent I would like to remove the sub task {this|SubTask} {project|SubTask} {task|SubTask}
+DeleteFinalIntent I want to discard the sub task {this|SubTask}
+DeleteFinalIntent I want to discard the sub task {this|SubTask} {project|SubTask}
+DeleteFinalIntent I want to discard the sub task {this|SubTask} {project|SubTask} {task|SubTask}
+DeleteFinalIntent I would like to discard the sub task {this|SubTask}
+DeleteFinalIntent I would like to discard the sub task {this|SubTask} {project|SubTask}
+DeleteFinalIntent I would like to discard the sub task {this|SubTask} {project|SubTask} {task|SubTask}
 
 AMAZON.HelpIntent help
 AMAZON.HelpIntent help me 
