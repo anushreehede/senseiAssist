@@ -8,7 +8,7 @@ var storage = require('./storage');
 exports.handler = function(event,context,callback) {
     // Create Alexa handler
     var alexa = Alexa.handler(event, context);
-    //alexa.appId = 'amzn1.ask.skill.39abddd6-719b-4358-b2fb-cf47d5a281e2'; // App ID given on Amazon Developers console
+    //alexa.appId = 'xxxx'; // App ID given on Amazon Developers console
     
     // Register all the handlers
     alexa.registerHandlers(newSessionHandlers, ProjectHandlers, startProjectHandler, retrieveProjectHandler, updateProjectHandler, deleteProjectHandler);
