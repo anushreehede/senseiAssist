@@ -8,7 +8,7 @@ var storage = require('./storage');
 exports.handler = function(event,context,callback) {
     // Create Alexa handler
     var alexa = Alexa.handler(event, context);
-    //alexa.appId = 'xxxx'; // App ID given on Amazon Developers console
+    //alexa.appId = 'amzn1.ask.skill.39abddd6-719b-4358-b2fb-cf47d5a281e2'; // App ID given on Amazon Developers console
     
     // Register all the handlers
     alexa.registerHandlers(newSessionHandlers, ProjectHandlers, startProjectHandler, retrieveProjectHandler, updateProjectHandler, deleteProjectHandler);
@@ -196,10 +196,14 @@ var retrieveProjectHandler = Alexa.CreateStateHandler(states.FETCHMODE, {
     // fetches the project details 
     "FetchFinalIntent": function(){
         project['SubTask'] = this.event.request.intent.slots.SubTask.value;
-        storage.getProject(project, (fetch_project) => {
+        storage.getProject(project, (response) => {
+          if(!response){
+              this.emit(':ask', "I couldn't find a project like that. Please tell me the project you want to fetch again.");
+          } else{
             this.handler.state = states.STARTMODE;
-            response = 'The project name is: '+fetch_project.ProjectName+', the project sub task is: '+fetch_project.SubTask+', the project incharge is: '+fetch_project.ProjectIncharge+', the deadline is: '+fetch_project.Deadline+', the status is: '+fetch_project.Status+'. What would you like to do now?';
-            this.emit(':ask', response);
+            message = 'The project name is: '+response.ProjectName+', the project sub task is: '+response.SubTask+', the project incharge is: '+response.ProjectIncharge+', the deadline is: '+response.Deadline+', the status is: '+response.Status+'. What would you like to do now?';
+            this.emit(':ask', message);
+          }
         });
     }
 });
@@ -234,13 +238,19 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
     // asks whether we want to update status, deadline or project incharge details
     'UpdateSubtask': function(){
         project['SubTask'] = this.event.request.intent.slots.SubTask.value;
-        this.emit(':ask', "What would you like to update in this project?");
+        storage.getProject(project, (response) => {
+            if(!response){
+                this.emit(':ask', "I couldn't find a project like that. Please tell me the project which you want to update again.");
+            } else {
+                this.emit(':ask', "What would you like to update in this project?");
+            }
+        });
     },
     
     // updates the deadline in dynamodb
     "UpdateDeadline": function(){
         project['Deadline'] = this.event.request.intent.slots.Deadline.value;
-        storage.updateDeadline(project, ()=> {
+        storage.updateDeadline(project, () => {
                 this.handler.state = states.STARTMODE;
                 this.emit(":ask", "Your project deadline has been updated . What would you like to do now?");
         });
@@ -249,11 +259,15 @@ var updateProjectHandler = Alexa.CreateStateHandler(states.UPDATEMODE, {
     // updates the status in dynamodb
     "UpdateStatus": function(){
         project['Status'] = this.event.request.intent.slots.Status.value;
-        storage.getProject(project, (fetch_project) => {
-            storage.updateStatus (fetch_project, project['Status'], () => {
+        storage.getProject(project, (response) => {
+            if(!response){
+              this.emit(':ask', "I couldn't find a project like that. Please tell me the project which you want to update again.");
+            } else {
+              storage.updateStatus (response, project['Status'], () => {
                 this.handler.state = states.STARTMODE;
                 this.emit(":ask", "Your project status has been updated. What would you like to do now?");
-           });
+              });
+            }
         });
     },
     
@@ -299,10 +313,14 @@ var deleteProjectHandler = Alexa.CreateStateHandler(states.DELETEMODE, {
     // deletes the project details from dynamodb 
     "DeleteFinalIntent": function(){
         project['SubTask'] = this.event.request.intent.slots.SubTask.value;
-        storage.deleteProject(project, () => {
+        storage.deleteProject(project, (response) => {
+          if(!response){
+              this.emit(':ask', "I couldn't find a project like that. Please tell me the project you want to delete again.");
+          } else {
             this.handler.state = states.STARTMODE;
-            response = 'The project you requested has been deleted. What would you like to do now?';
-            this.emit(':ask', response);
-        });
+            message = 'The project you requested has been deleted. What would you like to do now?';
+            this.emit(':ask', message);
+          }
+       });
     }
 });

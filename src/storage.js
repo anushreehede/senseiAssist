@@ -46,6 +46,7 @@ var storage = (function() {
 			dynamodb.get(params, function(err, data) {
                 if(err){
                     console.log("The error is in get function"+err);
+                    callback(false);
                 } else{
 				callback(data.Item);
                 }
@@ -68,9 +69,11 @@ var storage = (function() {
             dynamodb.update(params, function(err, data){
                 if(err){
                     console.log(err);
+                    //callback(false);
                 }
                 else{
                     callback();
+                    //callback(data);
                 }
             });
         },
@@ -116,7 +119,7 @@ var storage = (function() {
             // text and subject for email
 	        var text = 'Dear ' + project['ProjectIncharge']+',\nThe project "'+project['ProjectName']+'" with sub task "'+project['SubTask']+'" has updated its status to "'+project['Status']+'". Your deadline is '+project['Deadline']+'. \nFrom Sensei Assistant.';
             
-            var subject = "PROJECT - " +project['ProjectName']+" - "+project['SubTask']+" UPDATE";
+            var subject = "PROJECT UPDATE - " +project['ProjectName']+" - "+project['SubTask'];
             
             // email options/details
 	        var mailOptions = {
@@ -159,10 +162,11 @@ var storage = (function() {
             };
             dynamodb.update(params, function(err, data){
                 if(err){
-                    console.log(err);
-                }
-                else{
-                    callback();
+                  console.log(err);
+                  //callback(false);  
+                } else {
+                  callback();
+				  //callback(data);
                 }
             });
         },
@@ -177,7 +181,12 @@ var storage = (function() {
 				}
 			};
 			dynamodb.delete(params, function(err, data) {
-				callback();
+                if(err){
+                  console.log(err);
+                  callback(false);  
+                } else {
+				  callback(data);
+                }
 			});
 		}
     }

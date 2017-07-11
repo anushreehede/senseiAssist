@@ -35,11 +35,11 @@ Zip the files in `/triggers` and upload in a separate Lambda function on AWS. Th
 ~~4. Email to project incharge when status updated~~    
 ~~5. Create email field in SenseiProjects table, make all email related intents~~     
 ~~6. Trigger email to project incharge before deadline~~    
-7. Improve the sample utterances, possibly change flow of program (IMP)  
+~~7. Improve the sample utterances, possibly change flow of program~~   
 ~~8. Get official email, create credentials.~~  
 ~~9. Make `package.json` file.~~   
-10. Error handling/validation  
-11. Study and presentation 
+~~10. Error handling/validation~~  
+~~11. Study and presentation~~  
 
 ##### Remember to change the code in `/speechAssets` whenever new intent is added
 
