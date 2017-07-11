@@ -22,10 +22,14 @@
 
 ### Uploading to Amazon AWS
 
-Zip the files in `/src` and create a `src.zip` file to upload to AWS. 
-The intents and utterances have been included in `/speechAssets` - to be used on Developer's portal. 
+Create a skill on Amazon Developer's console (Alexa). The intents and utterances have been included in `/speechAssets` - to be used on here. 
+
+Remember to add the appId from Developer's console in `src/index.js` and the email credentials in `src/storage.js` and in `triggers/email.js`. 
+
+Zip the files in `/src` and create a `src.zip` file to upload to the AWS Lambda function. Copy the ARN of the function to the Developer's console. 
 
 Zip the files in `/triggers` and upload in a separate Lambda function on AWS. This sends deadline reminder emails. 
+
 
 ### TODO
 
