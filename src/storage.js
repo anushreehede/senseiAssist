@@ -11,6 +11,9 @@ AWS.config.update({
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
+// Requiring credentials for email
+var credentials = require('./credentials');
+
 // main storage variable which has functions of saving, fetching and updating data
 var storage = (function() {
 	var dynamodb = new AWS.DynamoDB.DocumentClient();
@@ -99,14 +102,15 @@ var storage = (function() {
             };
              
             // xoath2 generator for sending emails
+            // IMPORTANT USE YOUR OWN CREDENTIALS
             var generator = require('xoauth2').createXOAuth2Generator({
-              user: 'example@gmail.com',
-              clientId: "xxxx",
-              clientSecret: "xxxx",
-              refreshToken: "xxxx",
-              accessToken: "xxxx",
-              expires: 0000
-           });
+              user: credentials.user,
+              clientId: credentials.clientId,
+              clientSecret: credentials.clientSecret,
+              refreshToken: credentials.refreshToken,
+              accessToken: credentials.accessToken,
+              expires: credentials.expires
+            });
             
             // SMTP transporter object
 	        var transporter = nodemailer.createTransport(smtpTransport({
@@ -123,7 +127,7 @@ var storage = (function() {
             
             // email options/details
 	        var mailOptions = {
-	          from: 'Sensei Office Assistant   <example@gmail.com>',
+	          from: 'Sensei Office Assistant   <'+credentials.user+'>',
 	          to: project['Email'], 
               subject: subject,
 	          text: text 

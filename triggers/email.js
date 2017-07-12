@@ -3,6 +3,9 @@
 var nodemailer = require('nodemailer');
 var smtpTransport = require('nodemailer-smtp-transport');
 
+// Requiring credentials for email
+var credentials = require('./credentials');
+
 var email = (function(){
     return {
         // method send() to send an email 
@@ -10,13 +13,13 @@ var email = (function(){
             // the generated credentials for my email
             // IMPORTANT USE YOUR OWN CREDENTIALS
             var generator = require('xoauth2').createXOAuth2Generator({
-              user: 'example@gmail.com',
-              clientId: "xxxx",
-              clientSecret: "xxxx",
-              refreshToken: "xxxx",
-              accessToken: "xxxx",
-              expires: 0000
-           });
+              user: credentials.user,
+              clientId: credentials.clientId,
+              clientSecret: credentials.clientSecret,
+              refreshToken: credentials.refreshToken,
+              accessToken: credentials.accessToken,
+              expires: credentials.expires
+            });
     );
     // SMTP transporter object
 	var transporter = nodemailer.createTransport(smtpTransport({
@@ -32,7 +35,7 @@ var email = (function(){
             
     // email options/details
 	var mailOptions = {
-	    from: 'Sensei Office Assistant <example@gmail.com>',
+	    from: 'Sensei Office Assistant <'+credentials.user+'>',
 	    to: project.Email, 
         subject: subject,
 	    text: text 

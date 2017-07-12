@@ -20,15 +20,17 @@
 `npm install nodemailer-smtp-transport --save`     
 `npm install xoauth2 --save`     
 
-### Uploading to Amazon AWS
+### Creating the skill - steps 
 
-Create a skill on Amazon Developer's console (Alexa). The intents and utterances have been included in `/speechAssets` - to be used on here. 
+1. Create a skill on Amazon Developer's console (Alexa). The intents and utterances have been included in `/speechAssets` - to be used on here. 
 
-Remember to add the appId from Developer's console in `src/index.js` and the email credentials in `src/storage.js` and in `triggers/email.js`. 
+2. Remember to add the appId from Developer's console in `src/index.js` and the email credentials in `src/storage.js` and in `triggers/email.js`. 
 
-Zip the files in `/src` and create a `src.zip` file to upload to the AWS Lambda function. Copy the ARN of the function to the Developer's console. 
+3. Create Gmail API credentials of a project on Google Developer's Console using [this](https://developers.google.com/gmail/api/quickstart/nodejs) as a guide. Create a file called `credentials.js` both in `/src` and in `/triggers` and export the `user`, `clientId`, `clientSecret`, `refreshToken`, `accessToken` and `expires` obtained from above guide from within it.   
 
-Zip the files in `/triggers` and upload in a separate Lambda function on AWS. This sends deadline reminder emails. 
+4. Zip the files in `/src` and create a `src.zip` file to upload to the AWS Lambda function. Copy the ARN of the function to the Developer's console. 
+
+5. Zip the files in `/triggers` and upload in a separate Lambda function on AWS. This sends deadline reminder emails. 
 
 
 ### TODO
@@ -44,7 +46,5 @@ Zip the files in `/triggers` and upload in a separate Lambda function on AWS. Th
 ~~9. Make `package.json` file.~~   
 ~~10. Error handling/validation~~  
 ~~11. Study and presentation~~  
-
-##### Remember to change the code in `/speechAssets` whenever new intent is added
 
 
