@@ -20,7 +20,7 @@ var email = (function(){
               accessToken: credentials.accessToken,
               expires: credentials.expires
             });
-    );
+    
     // SMTP transporter object
 	var transporter = nodemailer.createTransport(smtpTransport({
         service: 'gmail',
