@@ -13,18 +13,22 @@
 
 ### Install nodejs dependencies
 
-`cd src     
+```
+cd src     
 npm install alexa-sdk --save   
 npm install aws-sdk --save     
 npm install nodemailer --save       
 npm install nodemailer-smtp-transport --save       
-npm install xoauth2 --save` 
+npm install xoauth2 --save
+``` 
 
-`cd ../triggers 
+```
+cd ../triggers 
 npm install aws-sdk --save      
 npm install nodemailer --save       
 npm install nodemailer-smtp-transport --save       
-npm install xoauth2 --save`
+npm install xoauth2 --save
+```
 
 ### Creating the skill - steps  
 
