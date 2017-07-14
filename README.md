@@ -13,24 +13,30 @@
 
 ### Install nodejs dependencies
 
-`cd src`    
-`npm install alexa-sdk --save`  
-`npm install aws-sdk --save`    
-`npm install nodemailer --save`     
-`npm install nodemailer-smtp-transport --save`     
-`npm install xoauth2 --save`     
+`cd src     
+npm install alexa-sdk --save   
+npm install aws-sdk --save     
+npm install nodemailer --save       
+npm install nodemailer-smtp-transport --save       
+npm install xoauth2 --save` 
 
-### Creating the skill - steps 
+`cd ../triggers 
+npm install aws-sdk --save      
+npm install nodemailer --save       
+npm install nodemailer-smtp-transport --save       
+npm install xoauth2 --save`
 
-1. Create a skill on Amazon Developer's console (Alexa). The intents and utterances have been included in `/speechAssets` - to be used on here. 
+### Creating the skill - steps  
+
+1. Create a skill on Amazon Developer's console (Alexa). The intents and utterances have been included in `/speechAssets` - to be used over here. 
 
 2. Remember to add the appId from Developer's console in `src/index.js` and the email credentials in `src/storage.js` and in `triggers/email.js`. 
 
 3. Create Gmail API credentials of a project on Google Developer's Console using [this](https://developers.google.com/gmail/api/quickstart/nodejs) as a guide. Create a file called `credentials.js` both in `/src` and in `/triggers` and export the `user`, `clientId`, `clientSecret`, `refreshToken`, `accessToken` and `expires` obtained from above guide from within it.   
 
-4. Zip the files in `/src` and create a `src.zip` file to upload to the AWS Lambda function. Copy the ARN of the function to the Developer's console. 
+4. Zip the files (including `node_modules`) in `/src` and create a `src.zip` file to upload to the AWS Lambda function. Copy the ARN of the function to the Developer's console. 
 
-5. Zip the files in `/triggers` and upload in a separate Lambda function on AWS. This sends deadline reminder emails. 
+5. Zip the files (including `node_modules`) in `/triggers` and create a `triggers.zip` to upload to a separate Lambda function on AWS. This sends deadline reminder emails. 
 
 
 ### TODO
